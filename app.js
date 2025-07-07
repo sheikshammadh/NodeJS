@@ -1,60 +1,26 @@
 import express from 'express'
+import userRouter from './routes/userRouter.js'
+import prodRouter from './routes/prodRouter.js'
+import orderRouter from './routes/orderRouter.js'
 const app = express()
 let host='127.0.0.1'
-let port = 8080
-
+let port=8080
 /*
-usage : app root 
-API URL: http://127.0.0.1:8080/
+Usage: Application root Request
+API URL:http:127.0.0.1:8080/
 Method Type:GET
+Required Fields:None
+Access Type:Public
 */
 app.get("/",(req,resp)=>{
-    resp.send("Application Root Req")
+    return resp.json({"message":"Application root request"})
 })
 
-/*
-usage : create new user 
-API URL: http://127.0.0.1:8080/user/create
-Method Type:POST 
-Required Fields:name,email,mobile
-Access Type:Public
-*/
-app.post("/user/create",(req,resp)=>{
-    resp.send("create new User")
-})
-/*
-usage : fetch users/user  
-API URL: http://127.0.0.1:8080/user/read
-Method Type:GET 
-Required Fields:None
-Access Type:Public
-*/
-app.get("/user/read",(req,resp)=>{
-    resp.send("Fetching user Details")
-})
+app.use("/user",userRouter)
+app.use("/proudct",prodRouter)
+app.use("/order",orderRouter)
 
-/*
-usage : update user
-API URL: http://127.0.0.1:8080/user/update
-Method Type:PUT
-Required Fields:name,email,mobile
-Access Type:Public
-*/
-app.put("/user/update",(req,resp)=>{
-    resp.send("Updating user")
-})
-
-/*
-usage : delete user 
-API URL: http://127.0.0.1:8080/user/delete
-Method Type:DELETE 
-Required Fields:None
-Access Type:Public
-*/
-app.delete("/user/delete",(req,resp)=>{
-    resp.send("Delete User")
-})
 app.listen(port,host,(err)=>{
-    if(err) throw err 
-    console.log(`server is Running ... http://${host}:${port}/`)
+    if(err) throw err
+    console.log(`Server Running... http://${host}:${port}/`)
 })
