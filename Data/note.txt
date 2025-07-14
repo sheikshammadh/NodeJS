@@ -1,0 +1,62 @@
+npm init -y
+update package.json
+npm i express morgan chalk
+
+API info
+
+/*
+usage  : Application Root Request
+API URL: http://127.0.0.1:8080/
+Method Type:GET
+Required Field:None
+Access Type:Public
+*/
+
+/*
+usage  : emp module Root Request
+API URL: http://127.0.0.1:8080/emp/
+Method Type:GET
+Required Field:None
+Access Type:Public
+*/
+
+/*
+usage  : fetch employee details based on id
+API URL: http://127.0.0.1:8080/emp/101
+Method Type:GET
+Required Field:None
+Access Type:Public
+*/
+
+/*
+usage  : fetch all employees
+API URL: http://127.0.0.1:8080/emp/all
+Method Type:GET
+Required Field:None
+Access Type:Public
+*/
+
+/*
+usage  : create new employee
+API URL: http://127.0.0.1:8080/emp/create
+Method Type:POST
+Required Field:eid,ename,esal
+Access Type:Public
+*/
+
+/*
+usage  : update employee based on eid
+API URL: http://127.0.0.1:8080/emp/update/101
+Method Type:PUT
+Required Field:eid,ename,esal
+Access Type:Public
+*/
+
+
+/*
+usage  : delete employee based on eid
+API URL: http://127.0.0.1:8080/emp/delete/101
+Method Type:delete
+Required Field:None
+Access Type:Public
+*/
