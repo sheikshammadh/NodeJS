@@ -1,13 +1,15 @@
+import { configDotenv } from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
-dotenv.config({'path':'./config/dev.config'})
+// dotenv.config({'path':'./config/dev.config'})
+configDotenv({'path':'./config/dev.config'})
 let app= express()
 let port=process.env.PORT
 let host=process.env.HOST
 let DB_url=process.env.DB_url
 //read form data
 app.use(express.json())
-app.use('/api',emprouter)
+app.use('/api',Employee)
 
 
 
